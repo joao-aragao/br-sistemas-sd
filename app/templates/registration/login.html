@@ -1,0 +1,66 @@
+{% extends 'registration/auth_base.html' %}
+
+{% load widget_tweaks %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+
+{% if form.non_field_errors %}
+  {% for error in form.non_field_errors %}
+    <p class="login-box-msg text-danger">
+        {{ error }}
+    </p>
+  {% endfor %}
+{% else %}
+  <p class="login-box-msg">Faça seu login para iniciar sua sessão</p>
+{% endif %}
+
+{% if user.is_authenticated %}
+  <p class="login-box-msg">
+    Você já está autenticado! Deseja sair?
+  </p>
+  <div>
+    <a href="{% url 'logout' %}" >Sair</a>
+  </div>
+  <div>
+    <a href="{% url 'index' %}" >Voltar</a>
+  </div>
+
+{% else %}
+  <form action="." method="post">
+    {% csrf_token %}
+    <div class="input-group mb-3">
+      {{ form.username.errors }}
+      {{ form.username | add_class:'form-control' | attr:'placeholder=User' }}
+      <div class="input-group-append input-group-text">
+          <span class="fas fa-user"></span>
+      </div>
+    </div>
+    <div class="input-group mb-3">
+      {{ form.password.errors }}
+      {{ form.password | add_class:'form-control' | attr:'placeholder=Password' }}
+      <div class="input-group-append input-group-text">
+          <span class="fas fa-lock"></span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-8">
+        <div class="icheck-primary">
+        </div>
+      </div>
+      <!-- /.col -->
+      <div class="col-4">
+        <button type="submit" class="btn btn-primary btn-block btn-flat">Entrar</button>
+      </div>
+      <!-- /.col -->
+    </div>
+  </form>
+  
+  <p class="mb-1">
+    </br>
+    <a href="{% url 'password_reset' %}">Esqueceu sua senha?</a>
+  </p>
+{% endif %}
+
+{% endblock %}
