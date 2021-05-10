@@ -81,10 +81,10 @@ WSGI_APPLICATION = 'i3gs_base.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.environ.get('DB_BASE_NAME', 'dbi3gs'),
-        'USER': os.environ.get('DB_BASE_USER', 'puk'),
-        'PASSWORD': os.environ.get('DB_BASE_PASS', 'Ym3.1GsP'),
-        'HOST': os.environ.get('DB_BASE_HOST', 'localhost'),
+        'NAME': os.environ.get('DB_BASE_NAME', 'dbteste_sumay'),
+        'USER': os.environ.get('DB_BASE_USER', 'postgres'),
+        'PASSWORD': os.environ.get('DB_BASE_PASS', 'Ym3.1TkP'),
+        'HOST': os.environ.get('DB_BASE_HOST', '191.252.182.93'),
         'PORT': '5432',
     }
 }
