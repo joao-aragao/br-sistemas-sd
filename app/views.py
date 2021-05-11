@@ -1,5 +1,4 @@
 import psycopg2
-import pandas as pd
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 

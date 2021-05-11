@@ -1,5 +1,5 @@
 """
-WSGI config for i3gs_base project.
+WSGI config for sala_diretor project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'i3gs_base.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'sala_diretor.settings')
 
 application = get_wsgi_application()
